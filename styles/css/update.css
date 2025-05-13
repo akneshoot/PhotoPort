@@ -1,0 +1,128 @@
+/* Основной контейнер */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffffff, #999999, #ffffff);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 26px;
+    color: #333;
+}
+
+/* Ссылки */
+.invite-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+.invite-link:hover {
+    color: #000000;
+}
+
+
+/* Форма */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+select[multiple] {
+    height: 120px;
+}
+
+.error-message {
+    padding: 15px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    color: #842029;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: opacity 0.5s ease;
+}
+
+
+/* Кнопка */
+button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #000000;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #5e5e5e;
+}
+
+/* Кнопка выхода */
+a[href="logout.php"] {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    color: #ff4d4f;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a[href="logout.php"]:hover {
+    color: #d9363e;
+}

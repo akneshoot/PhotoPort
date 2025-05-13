@@ -1,0 +1,114 @@
+/* Профиль */
+.profile-info {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    gap: 15px;
+    flex-wrap: wrap; /* Позволяет перенос элементов */
+}
+
+
+
+.profile-image img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #ccc;
+}
+
+.profile-details {
+    flex: 1;
+    min-width: 200px; /* Чтобы не сжимался слишком сильно */
+}
+
+.profile-details h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-details p {
+    font-size: 18px;
+    color: #000000;
+}
+
+/* Кнопки */
+.profile-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.editbtn {
+    background-color: #000000;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    transition: 0.3s;
+    width: 100%; /* Растягиваем кнопки */
+}
+
+.editbtn:hover {
+    background-color: #dfdfdf;
+    color: #000000;
+}
+
+/* Лайки и комментарии */
+.likes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: -20px;
+}
+
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+
+/* Комментарии */
+.comments {
+    
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: -28px;
+    max-width: 400px; /* Ограничиваем ширину комментария */
+    word-wrap: break-word; /* Перенос длинных слов */
+    overflow-wrap: break-word; /* Перенос слов в новых браузерах */
+}
+
+.comments p {
+    font-size: 14px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    line-height: 1.4; /* Читаемость текста */
+}
+
+/* Адаптация под мобильные */
+@media (max-width: 600px) {
+    .profile-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-details {
+        margin-left: 0;
+    }
+
+    .profile-buttons {
+        width: 100%;
+    }
+}

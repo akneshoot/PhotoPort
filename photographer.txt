@@ -1,0 +1,51 @@
+<?php
+session_start();
+$servername = "localhost";
+$username = "root"; 
+$password = ""; 
+$dbname = "photoport";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Ошибка соединения: " . $conn->connect_error);
+}
+
+// Проверяем, вошел ли пользователь
+$is_logged_in = isset($_SESSION['user_name']);
+$user_name = $_SESSION['user_name'] ?? null;
+$role = 'guest'; // По умолчанию - гость
+
+// Если пользователь авторизован, получаем его роль
+if ($is_logged_in) {
+    $stmt = $conn->prepare("SELECT roles.name FROM users JOIN roles ON users.role_id = roles.id WHERE users.name = ?");
+    $stmt->bind_param("s", $user_name);
+    $stmt->execute();
+    $stmt->bind_result($role);
+    $stmt->fetch();
+    $stmt->close();
+}
+
+// Получаем информацию о фотографе, который был выбран
+$author_id = $_GET['id'] ?? null;
+
+if ($author_id) {
+    // Загружаем данные фотографа
+    $stmt = $conn->prepare("SELECT users.name, users.id, roles.name AS author_role 
+                            FROM users 
+                            JOIN roles ON users.role_id = roles.id
+                            WHERE users.id = ?");
+    $stmt->bind_param("i", $author_id);
+    $stmt->execute();
+    $stmt->bind_result($author_name, $author_id, $author_role);
+    $stmt->fetch();
+    $stmt->close();
+    
+    // Проверяем, является ли авторизованный пользователь тем же, кто перешел по ссылке
+    if ($is_logged_in && $_SESSION['user_name'] === $author_name) {
+        // Перенаправляем на страницу редактирования профиля
+        header("Location: profile.php");
+        exit();
+    }
+}
+?>

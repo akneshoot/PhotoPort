@@ -1,0 +1,41 @@
+.filter-bar {
+    max-width: 400px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.filter-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+    border-color: #666;
+    outline: none;
+}
+
+.image-stats {
+    margin-left: 5px;
+    text-transform: uppercase;
+    font-family: "DM Sans Bold", sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+}

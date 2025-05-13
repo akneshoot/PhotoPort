@@ -1,0 +1,193 @@
+/* Общие стили для страницы сообщений */
+.messages-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contacts-list {
+    width: 25%;
+    max-height: 500px;
+    overflow-y: auto;
+    border-right: 2px solid #ddd;
+}
+
+.rating-message {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #e6f7ff;
+    border: 1px solid #91d5ff;
+    color: #0050b3;
+    border-radius: 4px;
+}
+
+.btn-black {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 5px 10px;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+  }
+  
+  .btn-black:hover {
+    background-color: #dfdfdf;
+    color: #000000;
+  }
+
+
+.contacts-list a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 16px;
+}
+
+.contacts-list a.active {
+    background-color: #f0f0f0;
+    font-size: 16px;
+}
+
+.contact-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.chat-box {
+    flex-grow: 1;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    
+}
+
+.rating-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.rating-form select, .rating-form button {
+    padding: 8px 12px;
+    margin: 5px;
+}
+
+.rating-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.rating-form button:hover {
+    background-color: #45a049;
+}
+
+
+.message {
+    margin-left: 20px;
+    margin-top: 20px;
+    word-wrap: break-word;
+    max-width: 60%; 
+}
+
+.message.me {
+    margin-left: 270px;
+    margin-top: 20px;
+    text-align: right;
+    
+}
+
+.message strong {
+    display: block;
+    font-weight: bold;
+}
+
+.message p {
+    margin: 5px 0;
+    word-wrap: break-word;
+    font-size: 16px;
+    
+}
+
+.message-time {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.message-input form {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.message-input textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.message-input button {
+    padding: 10px 15px;
+    background-color: #111111;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message-input button:hover {
+    background-color: #3d3d3d;
+}
+
+.message-date {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin: 10px 0;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .contacts-list {
+        width: 100%;
+        margin-bottom: 10px;
+        border-right: none;
+    }
+
+    .chat-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .chat-box {
+        max-height: 350px;
+    }
+
+    .message {
+        max-width: 80%; /* Увеличим ширину сообщений на мобильных */
+    }
+
+    .message.me {
+        margin-left: 50px;
+    }
+
+
+}
