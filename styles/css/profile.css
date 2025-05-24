@@ -1,30 +1,41 @@
-/* Профиль */
 .profile-info {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* выровнять по верхнему краю */
+    gap: 30px;
     background: rgba(255, 255, 255, 0.5);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    gap: 15px;
-    flex-wrap: wrap; /* Позволяет перенос элементов */
+    flex-wrap: wrap;
 }
 
-
+.profile-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* аватарка и кнопки по центру */
+    gap: 20px; /* отступ между аватаркой и кнопками */
+}
 
 .profile-image img {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border: 3px solid #ccc;
 }
 
+.profile-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* отступы между кнопками */
+}
+
+
 .profile-details {
     flex: 1;
-    min-width: 200px; /* Чтобы не сжимался слишком сильно */
+    min-width: 250px;
 }
+
 
 .profile-details h2 {
     font-size: 24px;
@@ -36,12 +47,18 @@
     color: #000000;
 }
 
-/* Кнопки */
-.profile-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
+
+
+
+
+.profile-description {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #000000;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 90%;
 }
 
 .editbtn {
@@ -102,6 +119,18 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+    .profile-description {
+        max-width: 100%;
+    }
+
+    .profile-image img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border: 3px solid #ccc;
     }
 
     .profile-details {

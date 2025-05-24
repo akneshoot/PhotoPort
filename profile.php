@@ -166,12 +166,24 @@ $photos = $query->fetchAll(PDO::FETCH_ASSOC);
     <div class="pt-10 pb-8">
       <h1 class="text-4xl font-bold mr-4">Мой профиль</h1>
         <div class="profile-info mt-6 p-6">
-          <div class="profile-image">
-            <?php 
-              $profile_picture = !empty($user_data['profile_picture']) ? $user_data['profile_picture'] : 'images/default_profile.jpg';
-            ?>
-            <img src="<?php echo htmlspecialchars($profile_picture); ?>">
+          <div class="profile-left">
+            <div class="profile-image">
+              <?php 
+                $profile_picture = !empty($user_data['profile_picture']) ? $user_data['profile_picture'] : 'images/default_profile.jpg';
+              ?>
+              <img src="<?php echo htmlspecialchars($profile_picture); ?>">
+            </div>
+             <div class="profile-buttons">
+              <a href="update.php" class="editbtn">Изменить профиль</a>
+              <?php if ($role === 'photographer'): ?>
+                  <a href="edit_portfolio.php" class="editbtn">Мое портфолио</a>
+              <?php endif; ?>
+              <a href="messages.php" class="editbtn">Мои сообщения</a>
+              <a href="liked_photos.php" class="editbtn">Мои лайки</a>
+              <a href="favorites.php" class="editbtn">Избранное</a>
+            </div>
           </div>
+
 
           <div class="profile-details">
             <h2 class="text-xl font-semibold mb-2"><?php echo htmlspecialchars($user_data['name']); ?></h2>
@@ -186,18 +198,10 @@ $photos = $query->fetchAll(PDO::FETCH_ASSOC);
               <p><strong>Жанры:</strong> <?= !empty($genres) ? implode(', ', $genres) : 'Не указаны'; ?></p>
             <?php endif; ?>
 
-            <p><?php echo nl2br(htmlspecialchars($user_data['description'] ?? 'Описание отсутствует')); ?></p>
+            <p class="profile-description"><?php echo nl2br(htmlspecialchars($user_data['description'] ?? 'Описание отсутствует')); ?></p>
           </div>
 
-          <div class="profile-buttons">
-            <a href="update.php" class="editbtn">Изменить профиль</a>
-            <?php if ($role === 'photographer'): ?>
-                <a href="edit_portfolio.php" class="editbtn">Мое портфолио</a>
-            <?php endif; ?>
-            <a href="messages.php" class="editbtn">Мои сообщения</a>
-            <a href="liked_photos.php" class="editbtn">Мои лайки</a>
-            <a href="favorites.php" class="editbtn">Избранное</a>
-          </div>
+         
         </div>
     </div>
   </div>

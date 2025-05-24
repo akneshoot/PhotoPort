@@ -271,13 +271,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['rate_photographer']) &
                     ?>
 
                     <?php if ($valid_pair && !$job_fully_confirmed): ?>
-                        <form method="POST" style="display: flex; align-items: center; gap: 10px; margin: 20px 0;">
-                            <p style="margin: 0;">Работа была выполнена?</p>
-                            <button type="submit" name="confirm_work_done" class="btn-black">Да</button>
-                        </form>
+                        <?php
+                            $has_user_confirmed = ($user_role == 1 && $job_confirmed_by_client) || ($user_role == 2 && $job_confirmed_by_photographer);
+                        ?>
+                        <?php if (!$has_user_confirmed): ?>
+                            <form method="POST" style="display: flex; align-items: center; gap: 10px; margin: 20px 0;">
+                                <p style="margin: 0;">Работа была выполнена?</p>
+                                <button type="submit" name="confirm_work_done" class="btn-black">Да</button>
+                            </form>
+                        <?php else: ?>
+                            <p style="margin: 20px 0;">Вы подтвердили выполнение. Ожидается подтверждение второго участника.</p>
+                        <?php endif; ?>
                     <?php elseif ($valid_pair && $job_fully_confirmed): ?>
                         <p style="margin: 20px 0;">Оба участника подтвердили выполнение работы.</p>
                     <?php endif; ?>
+
 
 
 

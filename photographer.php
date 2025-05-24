@@ -153,8 +153,13 @@ $photos_stmt->close();
     <div class="pt-10 pb-8">
       <h1 class="text-4xl font-bold mr-4">Профиль пользователя</h1>
       <div class="profile-info mt-6 p-6">
-        <div class="profile-image">
-          <img src="<?php echo !empty($profile_picture) ? htmlspecialchars($profile_picture) : 'images/default_profile.jpg'; ?>" alt="Фото профиля" class="rounded-full w-32 h-32 object-cover shadow-md">
+        <div class="profile-left">
+          <div class="profile-image">
+            <img src="<?php echo !empty($profile_picture) ? htmlspecialchars($profile_picture) : 'images/default_profile.jpg'; ?>" alt="Фото профиля" class="rounded-full w-32 h-32 object-cover shadow-md">
+          </div>
+          <div class="profile-buttons self-center">
+            <a href="send_message.php?receiver_id=<?= $author_id ?>" class="editbtn">Написать сообщение</a>
+          </div>
         </div>
 
         <div class="profile-details">
@@ -180,14 +185,13 @@ $photos_stmt->close();
                   <p><strong>Жанры:</strong> Не указаны</p>
               <?php endif; ?>
 
-              <p><?php echo nl2br(htmlspecialchars($description ?? 'Нет описания')); ?></p>
+              <p class="profile-description"><?php echo nl2br(htmlspecialchars($description ?? 'Описание отсутствует')); ?></p>
+              
           <?php endif; ?>
         </div>
 
 
-        <div class="profile-buttons">
-          <a href="send_message.php?receiver_id=<?= $author_id ?>" class="editbtn">Написать сообщение</a>
-        </div>
+        
       </div>
       </div>
     </div>
